@@ -14,23 +14,13 @@ public class ConectaMySQL {
         try {
             Class.forName(driverName);
 
-            String MeuServer = "db4free.net:3306";
-            String MeuBanco = "desenkebtask";
+            // Deve informar os dados do banco //
+            String MeuServer = "";
+            String MeuBanco = "";
             String UrlConexao = "jdbc:mysql://" + MeuServer + "/" + MeuBanco;
-            String MeuUsuario = "paobatata";
-            String MinhaSenha ="141295AB";
-/*
-            String MeuServer = "sql154.main-hosting.eu";
-            String MeuBanco = "u257439930_kebta";
-            String UrlConexao = "jdbc:mysql://" + MeuServer + "/" + MeuBanco;
-            String MeuUsuario = "u257439930_paoba";
-            String MinhaSenha ="rQpjoOgMc50g";*/
-/*
-            String MeuServer = "mysql796.umbler.com:41890";
-            String MeuBanco = "kebtask";
-            String UrlConexao = "jdbc:mysql://" + MeuServer + "/" + MeuBanco;
-            String MeuUsuario = "trigopaobatata";
-            String MinhaSenha ="141295AB";*/
+            String MeuUsuario = "";
+            String MinhaSenha ="";
+            // Dados em branco para não ficar visível a todos //
 
             con = DriverManager.getConnection(UrlConexao,MeuUsuario,MinhaSenha);
 
