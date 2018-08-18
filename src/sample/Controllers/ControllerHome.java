@@ -1,14 +1,9 @@
 package sample.Controllers;
 
-import groovy.util.logging.Log;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import sample.Classes.AbreTela;
 
 public class ControllerHome extends Pane {
