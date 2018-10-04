@@ -10,10 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import sample.Classes.AbreTela;
-import sample.Classes.ConectaMySQL;
-import sample.Classes.ControlaMySQL;
-import sample.Classes.GeraHash;
+import sample.Classes.*;
 
 import javax.print.DocFlavor;
 import java.io.FileInputStream;
@@ -41,18 +38,32 @@ public class ControllerLogin implements javafx.fxml.Initializable {
     // id_usuario // nome_apelido // email // senha // status //
 
     public void handleBtnEntrarAction(javafx.event.ActionEvent actionEvent) throws SQLException {
+        if (txEmailUser.getText().toString().isEmpty()){
+            new MensagemPersonalizada().EmiteMensagem("Informação obrigatória","Seu e-mail deve ser informado.","warning");
+            return;
+        }
+
+        if (txSenhaUser.getText().toString().isEmpty()){
+            new MensagemPersonalizada().EmiteMensagem("Informação obrigatória","Sua senha deve ser informada.","warning");
+            return;
+        }
+
         ControlaMySQL control = new ControlaMySQL();
 
-        ResultSet rs = control.Select("SELECT nome_usuario FROM kt_usuario WHERE email_usuario = " + txEmailUser.getText().toString() + " AND senha_usuario = " + new GeraHash().GeraHash(txSenhaUser.getText().toString()));
+        ResultSet rs = control.Select("SELECT id_usuario, nome_usuario FROM kt_usuario WHERE email_usuario = '" + txEmailUser.getText().toString() + "' AND senha_usuario = '" + new GeraHash().GeraHash(txSenhaUser.getText().toString()) + "'");
 
         while (rs.next()){
-            if (!rs.getString(1).isEmpty()){
-                System.out.println("Seja bem vindo amiguinho " + rs.getString(1) + ".");
+            if (!rs.getString(2).isEmpty()){
+                Sessao.setIdUsuario(rs.getInt(1));
+
+                new AbreTela().Home();
+                btnEntrar.getScene().getWindow().hide();
+
+                return;
             }
         }
 
-        //new AbreTela().Home();
-        //btnEntrar.getScene().getWindow().hide();
+        new MensagemPersonalizada().EmiteMensagem("Falha ao efetuar o login","Desculpe, não reconheci seu usuário.","error");
     }
 
     public void handleBtnRegistrarMeAction(javafx.event.ActionEvent actionEvent){

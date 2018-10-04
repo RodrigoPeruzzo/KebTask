@@ -12,7 +12,7 @@ public class ControlaMySQL {
         try {
             PreparedStatement ps = con.prepareStatement(sql);
 
-            if (ps.execute()){
+            if (!ps.execute()){
                 // Executou com sucesso //
                 con.close();
                 return true;
@@ -79,5 +79,25 @@ public class ControlaMySQL {
         }
 
         return null;
+    }
+
+    public boolean RegistroExiste(String tabela, String campoFiltro){
+        ResultSet rs = Select("SELECT 1 FROM " + tabela + " WHERE " + campoFiltro);
+
+        System.out.println("1");
+
+        try {
+            while (rs.next()) {
+                System.out.println("2");
+                return true;
+            }
+            System.out.println("3");
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        System.out.println("4");
+
+        return false;
     }
 }

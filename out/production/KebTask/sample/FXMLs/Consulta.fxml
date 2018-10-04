@@ -13,8 +13,8 @@
       <Label layoutX="14.0" layoutY="17.0" text="Título:" />
       <Label layoutX="13.0" layoutY="57.0" text="Data criação:" />
       <Label layoutX="13.0" layoutY="99.0" text="Data prevista:" />
-      <TextField layoutX="108.0" layoutY="13.0" prefHeight="25.0" prefWidth="174.0" />
-      <DatePicker layoutX="107.0" layoutY="53.0" />
-      <DatePicker layoutX="107.0" layoutY="95.0" />
+      <TextField layoutX="108.0" fx:id="txTituloConsulta" layoutY="13.0" prefHeight="25.0" prefWidth="174.0" />
+      <DatePicker layoutX="107.0" fx:id="dtCricaoConsulta" layoutY="53.0" />
+      <DatePicker layoutX="107.0" fx:id="dtPrevistaConsulta" layoutY="95.0" />
    </children>
 </AnchorPane>

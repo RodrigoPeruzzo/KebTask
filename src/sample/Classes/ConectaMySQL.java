@@ -1,37 +1,26 @@
 package sample.Classes;
 
+import java.sql.Driver;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class ConectaMySQL {
     public static java.sql.Connection getConexaoMySQL(){
         java.sql.Connection con = null;
 
-        String driverName = "com.mysql.jdbc.Driver";
-
         try {
-            Class.forName(driverName);
+            //DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 
-            /*// Deve informar os dados do banco //
-            String MeuServer = "";
-            String MeuBanco = "";
-            String UrlConexao = "jdbc:mysql://" + MeuServer + "/" + MeuBanco;
-            String MeuUsuario = "";
+            // Deve informar os dados do banco //
+            String MeuServer = "localhost";
+            String MeuBanco = "db_kebtask";
+            //String UrlConexao = "jdbc:mysql://" + MeuServer + "/" + MeuBanco + "?useTimezone=true&serverTimezone=UTC&autoReconnect=true&useSSL=false";
+            String UrlConexao = "jdbc:mysql://" + MeuServer + "/" + MeuBanco + "?autoReconnect=true&useSSL=false";
+            String MeuUsuario = "root";
             String MinhaSenha ="";
-            // Dados em branco para não ficar visível a todos //*/
-
-            String MeuServer = "sql154.main-hosting.eu";
-            String MeuBanco = "u257439930_kebta";
-            String UrlConexao = "jdbc:mysql://" + MeuServer + "/" + MeuBanco;
-            String MeuUsuario = "u257439930_paoba";
-            String MinhaSenha ="rQpjoOgMc50g";
+            // Dados em branco para não ficar visível a todos //
 
             con = DriverManager.getConnection(UrlConexao,MeuUsuario,MinhaSenha);
-
-            if (con != null){
-                System.out.println("Conectado com sucesso.");
-            } else {
-                System.out.println("Falha ao conectar ao banco de dados.");
-            }
         } catch (Exception ignored){
             ignored.printStackTrace();
         }
