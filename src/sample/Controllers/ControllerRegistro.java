@@ -86,4 +86,9 @@ public class ControllerRegistro implements javafx.fxml.Initializable {
         new AbreTela().ImagePerfil();
         btnConfirmaCadastro.getScene().getWindow().hide();
     }
+
+    public void handleBtnVoltarCadastroAction(ActionEvent actionEvent){
+        new AbreTela().Login();
+        btnConfirmaCadastro.getScene().getWindow().hide();
+    }
 }

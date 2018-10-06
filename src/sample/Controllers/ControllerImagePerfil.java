@@ -74,9 +74,9 @@ public class ControllerImagePerfil implements javafx.fxml.Initializable {
 
     public void handleOnActionBtnVoltarImagePerfil(ActionEvent actionEvent){
         if (AtualizaTabela) {
-            new AbreTela().Registro();
-        } else {
             new AbreTela().Home();
+        } else {
+            new AbreTela().Registro();
         }
 
         ImagePerfil1.getScene().getWindow().hide();

@@ -21,7 +21,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class ControllerLogin implements javafx.fxml.Initializable {
+public class ControllerLogin {
     @FXML
     private Button btnEntrar;
 
@@ -70,21 +70,5 @@ public class ControllerLogin implements javafx.fxml.Initializable {
         new AbreTela().Registro();
 
         btnRegistrarMe.getScene().getWindow().hide();
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        try {
-            FileInputStream inp = new FileInputStream("Icones/IconEntrar.png");
-
-            Image image = new Image(inp);
-            ImageView imgView = new ImageView(image);
-            imgView.setFitHeight(15);
-            imgView.setFitWidth(15);
-
-            btnEntrar.setGraphic(imgView);
-        } catch (Exception ignored){
-            ignored.printStackTrace();
-        }
     }
 }

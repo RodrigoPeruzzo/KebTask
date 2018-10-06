@@ -40,6 +40,7 @@ public class MensagemPersonalizada {
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.get() == btnSim){
+
             return true;
         } else {
             return false;
